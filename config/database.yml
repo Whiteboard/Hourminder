@@ -1,0 +1,21 @@
+# PostgreSQL
+#   Ensure the PostgreSQL gem is defined in your Gemfile
+#   gem 'pg'
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: hourminder_development
+  username: jonathancutrell
+  host: localhost
+  pool: 5
+  port: 5432
+  
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: hourminder_test
+  username: jonathancutrell
+  host: localhost
+  pool: 5
+  port: 5432
+  
