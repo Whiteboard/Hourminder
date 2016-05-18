@@ -19,7 +19,7 @@ class DailySmsNotifier
 private
 
   def get_hours(user)
-    get_hours_for_user(user)
+    get_hours_for_user(user).round(1)
   end
 
 end
