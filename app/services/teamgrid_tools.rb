@@ -5,7 +5,7 @@ require 'json'
 module TeamgridTools
 
   def req_headers
-    { Authorization: "Bearer zp6FSbaoC45uH2oNeDxCj56Eh" }
+    { "Authorization" => "Bearer zp6FSbaoC45uH2oNeDxCj56Eh" }
   end
 
   def parse_uri(endpoint)
