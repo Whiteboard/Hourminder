@@ -26,7 +26,7 @@ gem 'twilio-ruby'
 gem 'dotenv-rails'
 gem 'awesome_print'
 gem 'unicorn'
-
+gem 'rails_12factor'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
