@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   def week
     @guilds = Guild.all
-    @user = User.all
+    @users = User.all
   end
 end
