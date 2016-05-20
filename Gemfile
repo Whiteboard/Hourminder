@@ -28,7 +28,6 @@ gem 'awesome_print'
 gem 'unicorn'
 gem 'rails_12factor'
 gem 'bootstrap-sass'
-gem 'sass-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
