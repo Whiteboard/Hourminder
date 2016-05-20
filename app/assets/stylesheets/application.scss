@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+main {
+  margin: 30px;
+}
+button, input[type=submit] {
+  @extend .btn;
+  @extend .btn-primary;
+}
