@@ -1,0 +1,19 @@
+<h2>This Week</h2>
+<table class="table">
+  <thead>
+    <tr>
+    	<td>User name</td>
+    	<td>User email</td>
+    	<td>Hours this week</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |u| %>
+      <tr>
+        <td><%= u.name %></td>
+        <td><%= u.email %></td>
+        <td><%= u.get_week_hours %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -7,7 +7,13 @@ class User < ActiveRecord::Base
   has_many :guild_assignments
   has_many :guilds, through: :guild_assignments
 
+  include TeamgridTools
+
   def name
     "#{first_name} #{last_name}"
+  end
+
+  def get_week_hours
+    get_hours_for_user(self)
   end
 end
