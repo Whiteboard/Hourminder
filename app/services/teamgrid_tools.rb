@@ -63,7 +63,7 @@ module TeamgridTools
     es = get_entries_for_user(user)
     return 0 if es.nil?
     hours = es.select{|e| !(e["end"].nil? || e["start"].nil?) }.map {|e|
-      (DateTime.parse(e["end"]).to_time.to_i - DateTime.parse(e["start"]).to_time.to_i) / 60 / 60.0
+      e["duration"] / 60.0
     }.inject(0, :+)
     hours
   end
