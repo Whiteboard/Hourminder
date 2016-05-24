@@ -29,7 +29,7 @@ module TeamgridTools
   def get_week_entries
     req_params = {
       limit: 999999,
-      startFrom: (Date.today - Date.today.wday).beginning_of_day.strftime("%Y-%m-%d")
+      startFrom: Date.today.beginning_of_week(start_day = :sunday).strftime("%Y-%m-%d")
     }
     uri = parse_uri("https://api.teamgridapp.com/times")
     res = get(uri, req_params)
@@ -40,7 +40,7 @@ module TeamgridTools
     req_params = {
       limit: 999999,
       userId: user.teamgrid_uid,
-      startFrom: (Date.today - Date.today.wday).beginning_of_day.strftime("%Y-%m-%d")
+      startFrom: Date.today.beginning_of_week(start_day = :sunday).strftime("%Y-%m-%d")
     }
     uri = parse_uri("https://api.teamgridapp.com/times")
 
