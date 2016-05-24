@@ -41,7 +41,8 @@ module TeamgridTools
     req_params = {
       limit: 999999,
       userId: user.teamgrid_uid,
-      startFrom: Date.today.beginning_of_week(start_day = :sunday).strftime("%Y-%m-%d")
+      startFrom: Date.today.beginning_of_week(start_day = :sunday).strftime("%Y-%m-%d"),
+      startTo: (Date.today.beginning_of_week(start_day = :sunday) + 1.week).strftime("%Y-%m-%d")
     }
     uri = parse_uri("https://api.teamgridapp.com/times")
 
