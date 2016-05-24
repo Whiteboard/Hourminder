@@ -52,7 +52,11 @@ module TeamgridTools
     req.initialize_http_header(req_headers)
 
     res = https.request(req)
-    es = JSON.parse(res.body)["data"]
+    return nil if res.body.nil?
+    body = JSON.parse(res.body)
+    return nil if body.nil?
+    es = body["data"]
+    return es
   end
 
   def get_hours_for_user(user)
