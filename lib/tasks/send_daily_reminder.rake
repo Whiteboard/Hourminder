@@ -8,6 +8,8 @@ def run_send_sms_notifications
 end
 
 def raw_send_sms_notifications
-  notifier = DailySmsNotifier.new
-  notifier.send
+  if (Date.today.wday.in? (1..5))
+    notifier = DailySmsNotifier.new
+    notifier.send
+  end
 end
