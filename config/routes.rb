@@ -30,6 +30,13 @@ Rails.application.routes.draw do
   #
   get 'admin/week'
 
+  namespace :api do
+    namespace :v1 do
+      post 'slack/tasks' => 'slack_webhooks#tasks'
+      post 'slack/times' => 'slack_webhooks#times'
+    end
+  end
+
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
