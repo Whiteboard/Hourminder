@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :user_locations
   resources :status_messages
+
   devise_for :users
   root to: redirect("/users/edit")
   # The priority is based upon order of creation: first created -> highest priority.
