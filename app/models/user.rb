@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :guild_assignments
   has_many :guilds, through: :guild_assignments
+  has_many :status_messages
 
   include TeamgridTools
 

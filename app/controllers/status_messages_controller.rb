@@ -25,6 +25,7 @@ class StatusMessagesController < ApplicationController
   # POST /status_messages.json
   def create
     @status_message = StatusMessage.new(status_message_params)
+    @status_message.user = current_user
 
     respond_to do |format|
       if @status_message.save
