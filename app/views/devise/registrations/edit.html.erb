@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :birthdate %>
-    <%= f.date_select :birthdate %>
+    <%= f.date_select(:birthdate, start_year: 1940 %>
   </div>
 
   <div class="actions">
