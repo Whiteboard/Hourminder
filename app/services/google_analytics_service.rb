@@ -7,12 +7,16 @@ class GoogleAnalyticsService
   SCOPE = 'https://www.googleapis.com/auth/analytics.readonly'
 
 
-  def initialize
+  def initialize(gaa)
     @analytics = Google::Apis::AnalyticsV3::AnalyticsService.new
     @analytics.authorization = Google::Auth::ServiceAccountCredentials.make_creds({
-     "json_key_io": get_account_json, 
+     "json_key_io": get_account_json(gaa),
      "scope": SCOPE
     })
+  end
+
+  def analytics
+    @analytics
   end
 
   def get_account_json(gaa)

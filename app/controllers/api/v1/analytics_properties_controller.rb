@@ -13,7 +13,7 @@ private
 
   def get_data
     GoogleAnalyticsAccount.all.map do |gas|
-      analytics = GoogleAnalyticsService.new(gas)
+      analytics = GoogleAnalyticsService.new(gas).analytics
       analytics.list_accounts.items.map do |item|
         analytics.list_web_properties(item.id).items.map do |property|
           ids = analytics.list_profiles(item.id, property.id).items.map do |profile|
