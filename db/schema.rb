@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520195151) do
+ActiveRecord::Schema.define(version: 20161130041811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "google_analytics_accounts", force: :cascade do |t|
+    t.text     "account_json"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "guild_assignments", force: :cascade do |t|
     t.integer  "user_id"
