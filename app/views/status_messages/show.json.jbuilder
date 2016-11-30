@@ -1,0 +1,1 @@
+json.partial! "status_messages/status_message", status_message: @status_message

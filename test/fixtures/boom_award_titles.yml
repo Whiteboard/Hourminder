@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  awarded_on: 2016-11-30 00:46:06
+
+two:
+  user_id: 
+  awarded_on: 2016-11-30 00:46:06

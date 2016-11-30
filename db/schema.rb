@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130041811) do
+ActiveRecord::Schema.define(version: 20161130054606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boom_award_titles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "awarded_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "boom_award_titles", ["user_id"], name: "index_boom_award_titles_on_user_id", using: :btree
 
   create_table "google_analytics_accounts", force: :cascade do |t|
     t.text     "account_json"
@@ -39,6 +48,24 @@ ActiveRecord::Schema.define(version: 20161130041811) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "status_messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "status_messages", ["user_id"], name: "index_status_messages_on_user_id", using: :btree
+
+  create_table "user_locations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_locations", ["user_id"], name: "index_user_locations_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -56,11 +83,15 @@ ActiveRecord::Schema.define(version: 20161130041811) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "teamgrid_uid"
+    t.datetime "birthdate"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "boom_award_titles", "users"
   add_foreign_key "guild_assignments", "guilds"
   add_foreign_key "guild_assignments", "users"
+  add_foreign_key "status_messages", "users"
+  add_foreign_key "user_locations", "users"
 end

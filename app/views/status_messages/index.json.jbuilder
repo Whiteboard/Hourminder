@@ -1,0 +1,1 @@
+json.array! @status_messages, partial: 'status_messages/status_message', as: :status_message

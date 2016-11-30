@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_locations
+  resources :status_messages
   devise_for :users
   root to: redirect("/users/edit")
   # The priority is based upon order of creation: first created -> highest priority.
@@ -36,6 +38,10 @@ Rails.application.routes.draw do
       post 'slack/times' => 'slack_webhooks#times'
     end
   end
+
+  get '/panels/1' => 'panels#fun'
+  get '/panels/2' => 'panels#fridge'
+  get '/panels/3' => 'panels#impact'
 
   # Example resource route with sub-resources:
   #   resources :products do
