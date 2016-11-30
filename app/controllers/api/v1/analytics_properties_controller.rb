@@ -1,34 +1,31 @@
-require 'google/apis/analytics_v3'
 class Api::V1::AnalyticsPropertiesController < ApplicationController
 
-  SCOPE = 'https://www.googleapis.com/auth/analytics.readonly'
-  attr_accessor :account_json
-
-  def initialize(account_json)
-    @account_json ||= account_json
-    setup
-  end
-
-  def analytics
-    @analytics
-  end
+  attr_accessor :analytics
 
   def profile_data
-    setup
-    analytics.list_accounts.items.map do |item|
-      analytics.list_web_properties(item.id).items.map do |property|
-        analytics.list_profiles(item.id, property.id).items.map do |profile|
-          analytics.get_ga_data("ga:#{profile.id}", "yesterday", "today", 'ga:sessions,ga:pageviews')
-        end
-      end
+    respond_to do |format|
+      format.json {
+        setup
+        render json: analytics.list_accounts.items.map do |item|
+          analytics.list_web_properties(item.id).items.map do |property|
+            ids = analytics.list_profiles(item.id, property.id).items.map do |profile|
+              "#{profile.id}"
+            end
+            matched_ids = (ids & ENV["GA_WHITELISTED_IDS"].split(",")).map {|id| "ga:#{id}"}
+            if matched_ids.count > 0
+              analytics.get_ga_data(matched_ids, "yesterday", "today", 'ga:sessions,ga:sessionDuration')
+            else
+              nil
+            end
+          end
+        end.flatten.compact
+      }
     end
   end
 
-  def setup
-    @analytics = Google::Apis::AnalyticsV3::AnalyticsService.new
-    @analytics.authorization = Google::Auth::ServiceAccountCredentials.make_creds({
-     "json_key_io": account_json, 
-     "scope": SCOPE
-    })
+private
+
+  def analytics
+    @analytics ||= GoogleAnalyticsService.new
   end
 end
