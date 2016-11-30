@@ -29,6 +29,8 @@ gem 'unicorn'
 gem 'rails_12factor'
 gem 'bootstrap-sass'
 gem 'slack-notifier'
+gem 'google-api-client'
+gem 'rb-readline'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
