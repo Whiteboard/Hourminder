@@ -31,6 +31,7 @@ gem 'bootstrap-sass'
 gem 'slack-notifier'
 gem 'google-api-client'
 gem 'rb-readline'
+gem 'paperclip'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,0 +1,15 @@
+<div class="container fridge">
+
+  <header>
+    <%= Time.now.strftime("%m/%d/%Y") %>
+  </header>
+
+  <main>
+    <%= render partial: "shared/user_status_cards", locals: { users: @users } %>
+  </main>
+
+  <footer>
+    <h5>The Fridge 2.0 &copy; Whiteboard 2011-<%= Time.now.year %></h5>
+  </footer>
+
+</div>

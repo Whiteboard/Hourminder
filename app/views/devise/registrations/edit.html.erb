@@ -1,3 +1,4 @@
+<div class="container">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <a class="btn btn-lg" href="<%= new_status_message_path %>">
@@ -30,7 +31,10 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
   <div class="field">
     <%= f.label :guilds %>
     <%= f.collection_select(:guild_ids, Guild.all, :id, :name, {include_blank: true}, multiple: true) %>
@@ -50,3 +54,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</div>

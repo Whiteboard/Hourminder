@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :status_messages
 
   devise_for :users
-  root to: redirect("/users/edit")
+  root to: "panels#fridge"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,6 +39,8 @@ Rails.application.routes.draw do
       post 'slack/times' => 'slack_webhooks#times'
     end
   end
+
+  resources :boom_award_titles, only: [:new, :create]
 
   get '/panels/1' => 'panels#fun'
   get '/panels/2' => 'panels#fridge'

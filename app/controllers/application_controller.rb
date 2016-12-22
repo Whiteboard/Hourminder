@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
 
 
   def configure_permitted_parameters
-		devise_parameter_sanitizer.permit(:account_update, keys: [:guild_ids, :birthdate])
+		devise_parameter_sanitizer.permit(:account_update, keys: [:guild_ids, :birthdate, :avatar])
 	end
 end
