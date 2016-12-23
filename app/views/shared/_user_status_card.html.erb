@@ -1,8 +1,5 @@
 <div class="user-statuses__item status-card <%= user.has_boom_award? ? "boom" : "" %>">
   <div class="status-card__row">
-    <div class="status-card__avatar">
-      <img src="<%= user.avatar.url %>">
-    </div>
     <div class="status-card__name">
       <%= user.name %>
     </div>
@@ -14,5 +11,8 @@
     <div class="status-card__location">
       <strong>Location:</strong> <%= user.user_locations.last.try(:location) %>
     </div>
+  </div>
+  <div class="status-card__avatar">
+    <img src="<%= user.avatar.url %>">
   </div>
 </div>
