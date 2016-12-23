@@ -29,6 +29,14 @@ html,body {
   background-color: #042135;
   color: #FFF;
 }
+.main-logo {
+  display: block;
+  width: 140px;
+  margin: 2rem auto;
+  polygon, path, rect {
+    fill: #FFF;
+  }
+}
 
 .container {
   position: relative;
