@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   get '/panels/2' => 'panels#fridge'
   get '/panels/3' => 'panels#impact'
 
+  resources :users
+
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
