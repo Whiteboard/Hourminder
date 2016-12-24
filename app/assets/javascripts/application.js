@@ -29,7 +29,7 @@ $('.status-card').on('mousemove', function(e){
       vy = (y - cy) / h;
   console.log(xOff, yOff);
   $(this).css({
-    'transform': 'rotateX(' + (vy * 8) + 'deg) rotateY(' + (vx * 15) + 'deg) scale(1.05)'
+    'transform': 'rotateX(' + (vy * 5) + 'deg) rotateY(' + (vx * 10) + 'deg) scale(1.05)'
   });
 }).on('mouseout', function(){
   $(this).css({
