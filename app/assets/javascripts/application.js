@@ -13,3 +13,26 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$('.status-card').on('mousemove', function(e){
+  var cardOffsets = $(this).offset();
+  var xOff = cardOffsets.left;
+  var yOff = cardOffsets.top;
+  var x = e.pageX - xOff,
+      y = e.pageY - yOff,
+      w = $(this).outerWidth(),
+      h = $(this).outerHeight(),
+      cx = w/2,
+      cy = h/2,
+      vx = (x - cx) / w,
+      vy = (y - cy) / h;
+  console.log(xOff, yOff);
+  $(this).css({
+    'transform': 'rotateX(' + (vy * 8) + 'deg) rotateY(' + (vx * 15) + 'deg) scale(1.05)'
+  });
+}).on('mouseout', function(){
+  $(this).css({
+    'transform': 'rotateX(0deg) rotateY(0deg) scale(.99)'
+  });
+});
