@@ -13,10 +13,10 @@
   transform: scale(.99);
   perspective: 1000px;
   @media only screen and (min-width: 768px){
-    width: 33.333333%;
+    width: 31%;
   }
   @media only screen and (min-width: 1280px){
-    width: 31%;
+    width: 22%;
   }
   transition: transform .2s ease-out;
   margin: 1%;
