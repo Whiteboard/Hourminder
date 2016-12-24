@@ -57,12 +57,11 @@
   &__avatar {
     width: 35%;
     height: 100%;
-    margin-bottom: 3rem;
     position: absolute;
     margin: 0 auto;
     overflow: hidden;
-    bottom: 0;
-    right: 0;
+    bottom: -1.5px;
+    right: -1.5px;
     img {
       object-fit: cover;
       object-position: center;
