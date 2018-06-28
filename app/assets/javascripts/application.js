@@ -36,3 +36,13 @@ $('.status-card').on('mousemove', function(e){
     'transform': 'rotateX(0deg) rotateY(0deg) scale(.99)'
   });
 });
+
+if (window._relevant_users.length > 0){
+  $(window._relevant_users).each(function(i,name){
+    $(".status-card__name").filter(function(item){
+      return $(item).text() == name)
+    }).each(function(i,el){
+      $(el).parents(".status-card").addClass("activated");
+    });
+  });
+}

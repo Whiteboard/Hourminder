@@ -4,6 +4,11 @@
     <%= Time.now.strftime("%m/%d/%Y") %>
   </header>
 
+  <form action=".">
+    <%= collection_select(nil, :projectId, @projects, proc{ |p| p["_id"] }, proc{|p| p["name"]}, {include_blank: "Select a project"}, {:name => "projectId"} ) %>
+    <%= submit_tag "Submit", class: "btn btn-primary" %>
+  </form>
+
   <main>
     <%= render partial: "shared/user_status_cards", locals: { users: @users } %>
   </main>
@@ -11,5 +16,8 @@
   <footer>
     <h5>The Fridge 2.0 &copy; Whiteboard 2011-<%= Time.now.year %></h5>
   </footer>
+  <script>
+    window._relevant_users = <%= @user_involvement.try(:to_json).html_safe %>;
+  </script>
 
 </div>

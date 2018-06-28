@@ -70,6 +70,26 @@ module TeamgridTools
     hours
   end
 
+  def projects
+    req_params = {
+      limit: 999999
+    }
+    uri = parse_uri("https://api.teamgridapp.com/projects")
+    res = get(uri, req_params)
+    JSON.parse(res.body)["data"]
+  end
+
+  def times(opts={})
+    req_params = {
+      limit: 999999,
+      startFrom: Time.now - 3.years,
+      startTo: Time.now
+    }.merge(opts)
+    uri = parse_uri("https://api.teamgridapp.com/times")
+    res = get(uri, req_params)
+    JSON.parse(res.body)["data"]
+  end
+
   def get_team_users
     req_params = { limit: 50 }
     uri = parse_uri("https://api.teamgridapp.com/teams")
